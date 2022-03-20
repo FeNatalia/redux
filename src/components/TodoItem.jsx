@@ -1,35 +1,26 @@
 import React from 'react'
-// import { useDispatch } from 'react-redux';
-// import { toggleComplete} from '../redux/todoSlice';
+import { useDispatch } from 'react-redux';
+import { toggleComplete, deleteTodo} from '../features/todoSlice';
 
-export const TodoItem = ({id, title, completed}) => {
-    // const dispatch = useDispatch();
+export const TodoItem = ({id, title, description, completed}) => {
+    const dispatch = useDispatch();
 
-    // const handleCheckBoxClick = () => {
-    //     dispatch(toggleComplete({id: id, completed: !completed}));
-    // };
+    const handleCheckBoxClick = () => {
+        dispatch(toggleComplete({id: id, completed: !completed}));
+    };
 
-    // const handleDeleteClick = () => {
-    //     dispatch(deleteTodo({id}));
-    // };
+    const handleDeleteClick = () => {
+        dispatch(deleteTodo({id}));
+    };
 
   return (
     <li className={completed === false ? 'todo--incompleted' : 'todo--completed'}>
-        <div className="todo--toggle-completed">
-            {/* <input
-                type='checkbox'
-                className='mr-3'
-                checked={completed}
-                onClick={handleCheckBoxClick}
-            ></input> */}
+        <div className="todo--toggle-completed" onClick={handleCheckBoxClick}>
             <h3 className="todo__title">{title}</h3>
-            {/* <p className="todo__body">{description}</p> */}
+            <p className="todo__body">{description}</p>
         </div>
-        {/* {item.isDone === true
-        && <button type="button" id="btnDeleteTodo" className="todo__button--remove" onClick={() => deleteTodo(item.id)}>Delete</button>} */}
-        {/* <button onClick={handleDeleteClick} type="button" id="btnDeleteTodo" className="todo__button--remove" >
-            Delete
-        </button> */}
+        {completed === true
+        && <button type="button" id="btnDeleteTodo" className="todo__button--remove" onClick={handleDeleteClick}>Delete</button>}
     </li>
   )
 }
