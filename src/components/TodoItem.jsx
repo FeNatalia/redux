@@ -2,7 +2,7 @@ import React from 'react'
 // import { useDispatch } from 'react-redux';
 // import { toggleComplete} from '../redux/todoSlice';
 
-export const TodoItem = ({id, title, completed}) => {
+export const TodoItem = ({id, title, description, completed}) => {
     // const dispatch = useDispatch();
 
     // const handleCheckBoxClick = () => {
@@ -23,7 +23,7 @@ export const TodoItem = ({id, title, completed}) => {
                 onClick={handleCheckBoxClick}
             ></input> */}
             <h3 className="todo__title">{title}</h3>
-            {/* <p className="todo__body">{description}</p> */}
+            <p className="todo__body">{description}</p>
         </div>
         {/* {item.isDone === true
         && <button type="button" id="btnDeleteTodo" className="todo__button--remove" onClick={() => deleteTodo(item.id)}>Delete</button>} */}
