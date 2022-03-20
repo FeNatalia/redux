@@ -5,8 +5,11 @@ import './styles/styles.css';
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Todoapp</h1>
+    <div className="page-wrapper">
+      <header className="header">
+        <h1 className="header__title">TodoApp</h1>
+        <h2 className="header__subtitle">We help you to stay organized!</h2>
+      </header>
       <Form/>
       <TodoList/>
     </div>

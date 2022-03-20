@@ -1,13 +1,13 @@
 import React from 'react'
-// import { useDispatch } from 'react-redux';
-// import { toggleComplete} from '../redux/todoSlice';
+import { useDispatch } from 'react-redux';
+import { toggleComplete} from '../features/todoSlice';
 
 export const TodoItem = ({id, title, description, completed}) => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // const handleCheckBoxClick = () => {
-    //     dispatch(toggleComplete({id: id, completed: !completed}));
-    // };
+    const handleCheckBoxClick = () => {
+        dispatch(toggleComplete({id: id, completed: !completed}));
+    };
 
     // const handleDeleteClick = () => {
     //     dispatch(deleteTodo({id}));
@@ -15,7 +15,7 @@ export const TodoItem = ({id, title, description, completed}) => {
 
   return (
     <li className={completed === false ? 'todo--incompleted' : 'todo--completed'}>
-        <div className="todo--toggle-completed">
+        <div className="todo--toggle-completed" onClick={handleCheckBoxClick}>
             {/* <input
                 type='checkbox'
                 className='mr-3'
